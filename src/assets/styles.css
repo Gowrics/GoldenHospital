@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+/* navbar styles */
+.navbar-collapse{
+    align-items: center;
+    justify-content: center;
+}
+.nav-item{
+    padding-left: 30px;
+    font-size: 20px;
+}
+.nav-brand{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+}
+.profile{
+    background-image: url("homeimg.jpg");
+    height: 60vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+a{
+    text-decoration: none;
+}
+p{
+    font-size: 30px;
+    color: darkgray;
+}
+h2{
+    border: 3px solid white;
+    width: 20%;
+border-radius: 40px;
+}
+
+.form-control{
+    width: 60%;
+}
+.DocterForm{
+    border: 1px solid gray;
+    align-items: center;
+    width: 50%;
+    justify-content: center;
+}
