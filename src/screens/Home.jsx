@@ -9,7 +9,6 @@ const Home = () => {
       <div className="container-fluid">
         <div className="container-fluid profile">
           <center>
-            {" "}
             <h1> Golden Hospital</h1>
           </center>
         </div>
@@ -24,7 +23,6 @@ const Home = () => {
                   your better treatment
                 </p>
                 <Link to="dental">
-                  {" "}
                   {/* Note: Adjusted to "dental" */}
                   <i>
                     <FaLongArrowAltRight

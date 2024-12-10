@@ -44,11 +44,16 @@ border-radius: 40px;
 }
 
 .form-control{
-    width: 60%;
+    width: 100%;
 }
 .DocterForm{
     border: 1px solid gray;
     align-items: center;
     width: 50%;
     justify-content: center;
+}
+.formimg{
+    width: 1000px;
+    height: 100%;
+
 }

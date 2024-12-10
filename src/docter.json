@@ -1,0 +1,84 @@
+{
+  "Docters": [
+    {
+      "id": "3",
+      "docterName": "Dr. Carol Davis",
+      "docterId": "91011",
+      "departmentType": "Neurology",
+      "licenseNum": "111213",
+      "profileImg": "profile-carol.jpg",
+      "signImg": "sign-carol.jpg"
+    },
+    {
+      "id": "1ab8",
+      "docterName": "gowri",
+      "docterId": "3232",
+      "departmentType": "Dental",
+      "licenseNum": "3333",
+      "profileImage": {},
+      "signImage": {}
+    },
+    {
+      "id": "688b",
+      "docterName": "gowri",
+      "docterId": "4343",
+      "departmentType": "Dermotology",
+      "licenseNum": "4434",
+      "profileImage": {},
+      "signImage": {}
+    },
+    {
+      "id": "a6a5",
+      "docterName": "gowri",
+      "docterId": "4545",
+      "departmentType": "Dental",
+      "licenseNum": "5545",
+      "profileImg": null,
+      "signImage": {},
+      "profileImage": {}
+    },
+    {
+      "id": "7570",
+      "docterName": "gowri",
+      "docterId": "34434",
+      "departmentType": "Dental",
+      "licenseNum": "4344",
+      "profileImg": {},
+      "signImg": {}
+    }
+  ],
+  "Departments": [
+    {
+      "id": "1",
+      "departmentType": "Neurology"
+    },
+    {
+      "id": "2",
+      "departmentType": "Dental"
+    },
+    {
+      "id": "3",
+      "departmentType": "Dermotology"
+    },
+    {
+      "id": "4",
+      "departmentType": "Cardiology"
+    },
+    {
+      "id": "5",
+      "departmentType": "Orthopedics"
+    },
+    {
+      "id": "",
+      "departmentType": ""
+    },
+    {
+      "id": "6",
+      "departmentType": "Anesthesiology"
+    },
+    {
+      "id": "7",
+      "departmentType": "General surgery"
+    }
+  ]
+}
