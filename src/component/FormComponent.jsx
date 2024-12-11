@@ -2,12 +2,10 @@ import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { validateForm } from "./validateForm";
 import axios from "axios";
-import img from "../assets/imgbg.avif";
 import { useNavigate } from "react-router-dom";
 
 const FormComponent = () => {
   const [data, setData] = useState([]);
-
   const [form, setForm] = useState({
     docterName: "",
     docterId: "",
@@ -16,17 +14,6 @@ const FormComponent = () => {
     profileImg: null,
     signImg: null,
   });
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:8003/Departments")
-      .then((res) => {
-        setData(res.data);
-      })
-      .catch((err) => console.log("err"));
-  }, []);
-
   const [errors, setErrors] = useState({
     docterName: "",
     docterId: "",
@@ -35,6 +22,17 @@ const FormComponent = () => {
     profileImg: "",
     signImg: "",
   });
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8003/Departments")
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((err) => console.log("Error fetching data:", err));
+  }, []);
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -57,6 +55,7 @@ const FormComponent = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const docterNameError = validateForm("docterName", form.docterName);
     const docterIdError = validateForm("docterId", form.docterId);
     const departmentTypeError = validateForm(
@@ -67,55 +66,37 @@ const FormComponent = () => {
     const profileImgError = validateForm("profileImg", form.profileImg);
     const signImgError = validateForm("signImg", form.signImg);
 
-    if (
-      !docterNameError &&
-      !docterIdError &&
-      !departmentTypeError &&
-      !licenseNumError &&
-      !profileImgError &&
-      !signImgError
-    ) {
+    const newErrors = {
+      docterName: docterNameError,
+      docterId: docterIdError,
+      departmentType: departmentTypeError,
+      licenseNum: licenseNumError,
+      profileImg: profileImgError,
+      signImg: signImgError,
+    };
+
+    setErrors(newErrors);
+
+    const hasErrors = Object.values(newErrors).some((error) => error);
+
+    if (!hasErrors) {
       const newUser = { ...form };
       axios.post("http://localhost:8003/Docters", newUser).then((res) => {
-        console.log(res);
+        console.log("Form submitted successfully:", res.data);
+        alert("Form Submitted Successfully..");
         navigate("/");
       });
-      console.log("Form submitted successfully:", newUser);
-      setForm({
-        docterName: "",
-        docterId: "",
-        departmentType: "",
-        licenseNum: "",
-        profileImg: null,
-        signImg: null,
-      });
-      setErrors({
-        docterName: "",
-        docterId: "",
-        departmentType: "",
-        licenseNum: "",
-        profileImg: null,
-        signImg: null,
-      });
     } else {
-      setErrors({
-        docterName: docterNameError,
-        docterId: docterIdError,
-        departmentType: departmentTypeError,
-        licenseNum: licenseNumError,
-        profileImg: profileImgError,
-        signImg: signImgError,
-      });
-      console.log("Form has errors:", errors);
+      console.log("Form has errors:", newErrors);
     }
   };
 
   return (
     <div className="container formimag mt-5">
-      <form className=" p-5 DocterForm" onSubmit={handleSubmit}>
+      <form className="p-5 DocterForm" onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="docterName" className="form-label">
-            docter Name
+            Doctor Name
           </label>
           <input
             type="text"
@@ -132,7 +113,7 @@ const FormComponent = () => {
 
         <div className="mb-3">
           <label htmlFor="docterId" className="form-label">
-            docter ID
+            Doctor ID
           </label>
           <input
             type="number"
@@ -166,10 +147,6 @@ const FormComponent = () => {
                 {item.departmentType}
               </option>
             ))}
-
-            {/* <option value="">Select Department</option>
-            <option value="Dental">Dental Department</option>
-            <option value="Dermotology">Dermotology Department</option> */}
           </select>
           {errors.departmentType && (
             <div className="invalid-feedback">{errors.departmentType}</div>
@@ -178,7 +155,7 @@ const FormComponent = () => {
 
         <div className="mb-3">
           <label htmlFor="licenseNum" className="form-label">
-            docter License Number
+            Doctor License Number
           </label>
           <input
             type="number"

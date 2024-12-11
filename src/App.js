@@ -7,6 +7,8 @@ import DoctersList from './screens/DoctersList';
 import FormComponent from './component/FormComponent';
 import DepartmentForm from './component/DepartmentForm';
 import DepartmentList from './screens/DepartmentList';
+import InvoiceForm from './component/InvoiceForm';
+import InvoiceList from './screens/InvoiceList';
 
 
 function App() {
@@ -21,7 +23,11 @@ function App() {
         <Route path="form" element={<FormComponent/>}/>
         <Route path="service" element={<DepartmentForm/>}/>
         <Route path="departmentlist" element={<DepartmentList/>}/>
+        <Route path="invoice" element={<InvoiceForm/>}/>
+        <Route path="invoicelist" element={<InvoiceList/>}/>
+        <Route path="*" element={<Home />}  />
       </Routes>
+      
     </BrowserRouter>
   );
 }

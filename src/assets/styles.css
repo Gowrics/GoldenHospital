@@ -25,9 +25,9 @@ body {
 }
 .profile{
     background-image: url("homeimg.jpg");
-    height: 60vh;
+    height: 50vh;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size:cover;
 }
 
 a{
@@ -46,12 +46,36 @@ border-radius: 40px;
 .form-control{
     width: 100%;
 }
-.DocterForm{
+.DocterForm {
+    position: relative; /* Ensure the form is positioned relatively */
     border: 1px solid gray;
     align-items: center;
-    width: 50%;
+    width: 100%;
     justify-content: center;
-}
+    padding: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .DocterForm::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../assets/formbg.avif');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5; /* Set the desired opacity */
+    z-index: -1; /* Place the pseudo-element behind the form content */
+    border-radius: 8px; /* Match the form's border-radius */
+  }
+  
+
+
+
+
 .formimg{
     width: 1000px;
     height: 100%;

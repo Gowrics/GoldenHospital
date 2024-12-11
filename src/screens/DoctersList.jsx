@@ -45,6 +45,14 @@ const DoctersList = () => {
         .catch((err) => console.error("error deleting error", err));
     }
   };
+  const getImagePath = (profileImage) => {
+    try {
+      return require(`../assets/${profileImage}`);
+    } catch (err) {
+      console.warn("Error loading image:", err);
+      return null;
+    }
+  };
 
   return (
     <div className="container mt-5">
@@ -55,6 +63,10 @@ const DoctersList = () => {
         placeholder="search by docter name,department,id"
         onChange={handleSearchChange}
       />
+      <br />
+      <Link className="btn btn-primary" to="/form">
+        Add
+      </Link>
       <table className="table table-striped">
         <thead>
           <tr>
@@ -74,15 +86,19 @@ const DoctersList = () => {
                 <td>{item.licenseNum}</td>
                 <td>{item.departmentType}</td>
                 <td>
-                  <img
-                    src={item.profileImage}
-                    alt={`${item.docterName}'s profile`}
-                    width="50"
-                  />
+                  {item.profileImage ? (
+                    <img
+                      src={getImagePath(item.profileImage)}
+                      alt={`${item.doctorName}'s profile`}
+                      width="50"
+                    />
+                  ) : (
+                    "No Image Available"
+                  )}
                 </td>
                 <td>
-                  <Link className="btn btn-primary" to="/form">
-                    Add
+                  <Link className="btn btn-primary" to="/">
+                    Edit
                   </Link>
                 </td>
                 <td>

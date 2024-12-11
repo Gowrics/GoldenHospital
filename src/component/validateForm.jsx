@@ -1,25 +1,36 @@
-export const validateForm = (name, value) => {
+export const validateForm = (fieldName, value) => {
   let error = "";
 
-  switch (name) {
-    case "doctorName":
-      error =
-        value.length < 3
-          ? "Doctor name must be at least 3 characters long"
-          : "";
+  switch (fieldName) {
+    case "docterName":
+      if (!value) {
+        error = "Doctor Name is required";
+      }
       break;
-    case "doctorId":
-      error = value ? "" : "Doctor ID is required";
+    case "docterId":
+      if (!value) {
+        error = "Doctor ID is required";
+      }
       break;
-    case "doctorType":
-      error = value ? "" : "Please select a department";
+    case "departmentType":
+      if (!value) {
+        error = "Department Type is required";
+      }
       break;
-    case "doctorLicense":
-      error = value ? "" : "License number is required";
+    case "licenseNum":
+      if (!value) {
+        error = "License Number is required";
+      }
       break;
-    case "profileImage":
-    case "signImage":
-      error = value ? "" : "Please upload an image";
+    case "profileImg":
+      if (!value) {
+        error = "Profile Image is required";
+      }
+      break;
+    case "signImg":
+      if (!value) {
+        error = "Sign Image is required";
+      }
       break;
     default:
       break;
