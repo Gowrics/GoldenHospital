@@ -7,7 +7,7 @@ const DeptBox = ({ deptName, details }) => {
     <div className="border p-4">
       <h1>{deptName}</h1>
       <p>{details}</p>
-      <Link to="dental">
+      <Link to="/dental">
         <i>
           <FaLongArrowAltRight
             className="text-info"

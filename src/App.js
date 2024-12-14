@@ -9,6 +9,9 @@ import DepartmentForm from './component/DepartmentForm';
 import DepartmentList from './screens/DepartmentList';
 import InvoiceForm from './component/InvoiceForm';
 import InvoiceList from './screens/InvoiceList';
+import InvoiceElement from './component/InvoiceElement';
+import BillGenerate from './component/BillGenerate';
+import InvoiceApp from './invoiceapp/InvoiceApp';
 
 
 function App() {
@@ -25,6 +28,10 @@ function App() {
         <Route path="departmentlist" element={<DepartmentList/>}/>
         <Route path="invoice" element={<InvoiceForm/>}/>
         <Route path="invoicelist" element={<InvoiceList/>}/>
+        <Route path="invoiceelement" element={<InvoiceElement/>}/>
+        <Route path="/bill" element={<BillGenerate/>}/>
+      
+        <Route path="/newinvoice" element={<InvoiceApp/>}/>
         <Route path="*" element={<Home />}  />
       </Routes>
       

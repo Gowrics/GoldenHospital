@@ -1,24 +1,6 @@
 {
   "Docters": [
     {
-      "id": "3",
-      "docterName": "Dr. Carol Davis",
-      "docterId": "91011",
-      "departmentType": "Neurology",
-      "licenseNum": "111213",
-      "profileImg": "profile-carol.jpg",
-      "signImg": "sign-carol.jpg"
-    },
-    {
-      "id": "1ab8",
-      "docterName": "gowri",
-      "docterId": "3232",
-      "departmentType": "Dental",
-      "licenseNum": "3333",
-      "profileImage": {},
-      "signImage": {}
-    },
-    {
       "id": "688b",
       "docterName": "gowri",
       "docterId": "4343",
@@ -143,74 +125,57 @@
   ],
   "Invoice": [
     {
-      "id": "1a30",
-      "invoiceDate": "2024-12-11",
+      "id": "a44c",
+      "invoiceId": "1e33",
+      "invoiceDate": "14/12/2024",
       "itemDescription": "Moniter",
-      "itemRate": "1200",
-      "itemQuantity": "1",
-      "itemDiscount": "120.00",
-      "itemNetAmount": "1080.00",
-      "cashAmount": "1080",
-      "cardamount": "0",
-      "creditamount": "0",
-      "totalAmount": "0",
-      "totalDiscount": "0",
-      "totalNetAmount": "0",
-      "totalCashAmount": "0",
-      "totalCardAmount": "0",
-      "totalCredid": "0"
-    },
-    {
-      "id": "13ae",
-      "invoiceDate": "2024-12-11",
-      "itemDescription": "Keyboard",
-      "itemRate": "1250",
-      "itemQuantity": "1",
-      "itemDiscount": "125.00",
-      "itemNetAmount": "1125.00",
-      "cashAmount": "1124",
-      "cardamount": "0",
-      "creditamount": "0",
-      "totalAmount": "0",
-      "totalDiscount": "0",
-      "totalNetAmount": "0",
-      "totalCashAmount": "0",
-      "totalCardAmount": "0",
-      "totalCredid": "0"
-    },
-    {
-      "id": "f9e6",
-      "invoiceDate": "2024-12-11",
-      "itemDescription": "Monitersas",
       "itemRate": "1000",
-      "itemQuantity": "2",
+      "itemQuantity": "3",
+      "itemDiscount": "300.00",
+      "itemNetAmount": "2700.00",
+      "cashAmount": "",
+      "cardamount": "0",
+      "creditamount": "0",
+      "totalCashAmount": "NaN",
+      "totalCardAmount": "0.00",
+      "totalCredid": "0.00",
+      "totalAmount": "2700.00",
+      "totalDiscount": "300.00",
+      "totalNetAmount": "2700.00"
+    },
+    {
+      "id": "3633",
+      "itemDescription": "Mouse",
+      "itemRate": "500",
+      "itemQuantity": "4",
       "itemDiscount": "200.00",
       "itemNetAmount": "1800.00",
-      "cashAmount": "1800",
-      "cardamount": "0",
-      "creditamount": "0"
+      "totalAmount": "4500.00",
+      "totalDiscount": "500.00",
+      "totalNetAmount": "4500.00",
+      "totalCashAmount": "NaN",
+      "totalCardAmount": "NaN",
+      "totalCredid": "NaN"
     }
   ],
-  "TotalInvoice": [
+  "paymentDetails": [
     {
-      "id": "1a30",
-      "invoiceDate": "2024-12-11",
-      "totalAmount": "0",
-      "totalDiscount": "0",
-      "totalNetAmount": "0",
-      "totalCashAmount": "0",
-      "totalCardAmount": "0",
-      "totalCredid": "0"
+      "id": "7523",
+      "cashAmount": "4500",
+      "cardamount": "0",
+      "creditamount": "0",
+      "totalCashAmount": "4500.00",
+      "totalCardAmount": "0.00",
+      "totalCredid": "0.00"
     },
     {
-      "id": "1a31",
-      "invoiceDate": "2024-12-11",
-      "totalAmount": "0",
-      "totalDiscount": "0",
-      "totalNetAmount": "0",
-      "totalCashAmount": "0",
-      "totalCardAmount": "0",
-      "totalCredid": "0"
+      "id": "7b78",
+      "cashAmount": "4500",
+      "cardamount": "0",
+      "creditamount": "0",
+      "totalCashAmount": "9000.00",
+      "totalCardAmount": "0.00",
+      "totalCredid": "0.00"
     }
   ]
 }
