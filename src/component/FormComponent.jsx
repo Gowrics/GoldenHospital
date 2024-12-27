@@ -7,27 +7,27 @@ import { useNavigate } from "react-router-dom";
 const FormComponent = () => {
   const [data, setData] = useState([]);
   const [form, setForm] = useState({
-    docterName: "",
-    docterId: "",
-    departmentType: "",
-    licenseNum: "",
-    profileImg: null,
-    signImg: null,
+    doctorName: "",
+    deptCode: 0,
+    deptType: "",
+    licenseNo: 0,
+    imagePath: "",
+    signPath: "",
   });
   const [errors, setErrors] = useState({
-    docterName: "",
-    docterId: "",
-    departmentType: "",
-    licenseNum: "",
-    profileImg: "",
-    signImg: "",
+    doctorName: "",
+    deptCode: "",
+    deptType: "",
+    licenseNo: "",
+    imagePath: "",
+    signPath: "",
   });
 
   const navigate = useNavigate();
 
   useEffect(() => {
     axios
-      .get("http://localhost:8003/Departments")
+      .get("http://192.168.91.201:8081/department/getAll")
       .then((res) => {
         setData(res.data);
       })
@@ -36,12 +36,19 @@ const FormComponent = () => {
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
-    if (name === "profileImg" || name === "signImg") {
-      setForm({
-        ...form,
-        [name]: files[0],
-      });
-      const error = validateForm(name, files[0]);
+
+    if (name === "imagePath" || name === "signPath") {
+      const file = files[0]; // Get the selected file
+      if (file) {
+        const imageUrl = URL.createObjectURL(file);
+        console.log("image url", imageUrl);
+        setForm({
+          ...form,
+          [name]: imageUrl, // Store the file object in the state
+        });
+      }
+
+      const error = validateForm(name, file);
       setErrors({ ...errors, [name]: error });
     } else {
       setForm({
@@ -53,26 +60,24 @@ const FormComponent = () => {
     }
   };
 
+  console.log("imagssde", form.imagePath);
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const docterNameError = validateForm("docterName", form.docterName);
-    const docterIdError = validateForm("docterId", form.docterId);
-    const departmentTypeError = validateForm(
-      "departmentType",
-      form.departmentType
-    );
-    const licenseNumError = validateForm("licenseNum", form.licenseNum);
-    const profileImgError = validateForm("profileImg", form.profileImg);
-    const signImgError = validateForm("signImg", form.signImg);
+    const docterNameError = validateForm("doctorName", form.doctorName);
+    const deptCodeError = validateForm("docterId", form.deptCode);
+    const departmentTypeError = validateForm("deptType", form.deptType);
+    const licenseNumError = validateForm("licenseNo", form.licenseNo);
+    const profileImgError = validateForm("imagePath", form.imagePath);
+    const signImgError = validateForm("signPath", form.signPath);
 
     const newErrors = {
-      docterName: docterNameError,
-      docterId: docterIdError,
-      departmentType: departmentTypeError,
-      licenseNum: licenseNumError,
+      doctorName: docterNameError,
+      deptCode: deptCodeError,
+      deptType: departmentTypeError,
+      licenseNo: licenseNumError,
       profileImg: profileImgError,
-      signImg: signImgError,
+      signPath: signImgError,
     };
 
     setErrors(newErrors);
@@ -81,11 +86,14 @@ const FormComponent = () => {
 
     if (!hasErrors) {
       const newUser = { ...form };
-      axios.post("http://localhost:8003/Docters", newUser).then((res) => {
-        console.log("Form submitted successfully:", res.data);
-        alert("Form Submitted Successfully..");
-        navigate("/");
-      });
+
+      axios
+        .post("http://192.168.91.201:8081/doctor/create", newUser)
+        .then((res) => {
+          console.log("Form submitted successfully:", res.data);
+          alert("Form Submitted Successfully..");
+          navigate("/");
+        });
     } else {
       console.log("Form has errors:", newErrors);
     }
@@ -95,110 +103,120 @@ const FormComponent = () => {
     <div className="container formimag mt-5">
       <form className="p-5 DocterForm" onSubmit={handleSubmit}>
         <div className="mb-3">
-          <label htmlFor="docterName" className="form-label">
+          <label htmlFor="doctorName" className="form-label">
             Doctor Name
           </label>
           <input
             type="text"
-            className={`form-control ${errors.docterName ? "is-invalid" : ""}`}
-            id="docterName"
-            name="docterName"
-            value={form.docterName}
+            className={`form-control ${errors.doctorName ? "is-invalid" : ""}`}
+            id="doctorName"
+            name="doctorName"
+            value={form.doctorName}
             onChange={handleChange}
           />
-          {errors.docterName && (
-            <div className="invalid-feedback">{errors.docterName}</div>
+          {errors.doctorName && (
+            <div className="invalid-feedback">{errors.doctorName}</div>
           )}
         </div>
 
         <div className="mb-3">
-          <label htmlFor="docterId" className="form-label">
-            Doctor ID
+          <label htmlFor="deptCode" className="form-label">
+            Depat Code
           </label>
           <input
             type="number"
-            className={`form-control ${errors.docterId ? "is-invalid" : ""}`}
-            id="docterId"
-            name="docterId"
-            value={form.docterId}
+            className={`form-control ${errors.deptCode ? "is-invalid" : ""}`}
+            id="deptCode"
+            name="deptCode"
+            value={form.deptCode}
             onChange={handleChange}
           />
-          {errors.docterId && (
-            <div className="invalid-feedback">{errors.docterId}</div>
+          {errors.deptCode && (
+            <div className="invalid-feedback">{errors.deptCode}</div>
           )}
         </div>
 
         <div className="mb-3">
-          <label htmlFor="departmentType" className="form-label">
+          <label htmlFor="deptType" className="form-label">
             Department Type
           </label>
           <select
-            className={`form-control ${
-              errors.departmentType ? "is-invalid" : ""
-            }`}
-            id="departmentType"
-            name="departmentType"
-            value={form.departmentType}
+            className={`form-control ${errors.deptType ? "is-invalid" : ""}`}
+            id="deptType"
+            name="deptType"
+            value={form.deptType}
             onChange={handleChange}
           >
             <option value="">Select Department</option>
             {data.map((item) => (
-              <option key={item.id} value={item.departmentType}>
-                {item.departmentType}
+              <option key={item.id} value={item.categoryName}>
+                {item.categoryName}
               </option>
             ))}
           </select>
-          {errors.departmentType && (
-            <div className="invalid-feedback">{errors.departmentType}</div>
+          {errors.deptType && (
+            <div className="invalid-feedback">{errors.deptType}</div>
           )}
         </div>
 
         <div className="mb-3">
-          <label htmlFor="licenseNum" className="form-label">
+          <label htmlFor="licenseNo" className="form-label">
             Doctor License Number
           </label>
           <input
             type="number"
-            className={`form-control ${errors.licenseNum ? "is-invalid" : ""}`}
-            id="licenseNum"
-            name="licenseNum"
-            value={form.licenseNum}
+            className={`form-control ${errors.licenseNo ? "is-invalid" : ""}`}
+            id="licenseNo"
+            name="licenseNo"
+            value={form.licenseNo}
             onChange={handleChange}
           />
-          {errors.licenseNum && (
-            <div className="invalid-feedback">{errors.licenseNum}</div>
+          {errors.licenseNo && (
+            <div className="invalid-feedback">{errors.licenseNo}</div>
           )}
         </div>
 
         <div className="mb-3">
-          <label htmlFor="profileImg" className="form-label">
+          <label htmlFor="imagePath" className="form-label">
             Profile Image
           </label>
           <input
             type="file"
-            className={`form-control ${errors.profileImg ? "is-invalid" : ""}`}
-            id="profileImg"
-            name="profileImg"
+            accept="image/*"
+            className={`form-control ${errors.imagePath ? "is-invalid" : ""}`}
+            id="imagePath"
+            name="imagePath"
             onChange={handleChange}
           />
-          {errors.profileImg && (
-            <div className="invalid-feedback">{errors.profileImg}</div>
+          {errors.imagePath && (
+            <div className="invalid-feedback">{errors.imagePath}</div>
+          )}{" "}
+          {form.imagePath && (
+            <div>
+              <h3>Profile Image Preview:</h3>
+              <img
+                src={form.imagePath}
+                alt="Profile Image Preview"
+                style={{ width: "200px", height: "auto" }}
+              />
+            </div>
           )}
         </div>
 
         <div className="mb-3">
-          <label htmlFor="signImg" className="form-label">
+          <label htmlFor="signPath" className="form-label">
             Sign Image
           </label>
           <input
             type="file"
-            className={`form-control ${errors.signImg ? "is-invalid" : ""}`}
-            id="signImg"
-            name="signImg"
+            accept="image/*"
+            className={`form-control ${errors.signPath ? "is-invalid" : ""}`}
+            id="signPath"
+            name="signPath"
             onChange={handleChange}
           />
-          {errors.signImg && (
-            <div className="invalid-feedback">{errors.signImg}</div>
+          {errors.signPath && (
+            <div className="invalid-feedback">{errors.signPath}</div>
           )}
         </div>
 

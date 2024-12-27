@@ -9,7 +9,7 @@ const DepartmentList = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8003/Departments")
+      .get("http://192.168.91.201:8081/department/getAll")
       .then((res) => {
         setData(res.data);
         setFilteredData(res.data);
@@ -54,25 +54,23 @@ const DepartmentList = () => {
         placeholder="search by department id ,name"
         onChange={handleSearchChange}
       />
-      <table className="table table-striped">
+      <table className="table table-striped v-30">
         <thead>
           <tr>
-            <th scope="col">Department ID</th>
             <th scope="col">Department Name</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
           {filteredData.length > 0 ? (
             filteredData.map((item) => (
               <tr key={item.id}>
-                <td>{item.id}</td>
-                <td>{item.departmentType}</td>
+                {/* <td>{item.id}</td> */}
+                <td>{item.categoryName}</td>
                 <td>
-                  <Link className="btn btn-primary" to="/form">
+                  <Link className="btn btn-primary me-2" to="/form">
                     Add
                   </Link>
-                </td>
-                <td>
                   <button
                     className="btn btn-danger"
                     onClick={() => handleDelete(item.id)}

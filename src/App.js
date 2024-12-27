@@ -1,4 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "react-calendar/dist/Calendar.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
 import Home from './screens/Home';
 import DentalDepartment from './screens/DentalDepartment';
 import Dermotology from './screens/Dermotology';
@@ -7,12 +10,12 @@ import DoctersList from './screens/DoctersList';
 import FormComponent from './component/FormComponent';
 import DepartmentForm from './component/DepartmentForm';
 import DepartmentList from './screens/DepartmentList';
-import InvoiceForm from './component/InvoiceForm';
-import InvoiceList from './screens/InvoiceList';
-import InvoiceElement from './component/InvoiceElement';
-import BillGenerate from './component/BillGenerate';
-import InvoiceApp from './invoiceapp/InvoiceApp';
-
+import Calender from './component/Calender';
+import Dbtable from './component/Dbtable';
+import ModalShow from './component/Modal';
+import Dbtable1 from './component/Dbtable1';
+import Dbtable2 from './component/Dbtable2';
+import Dbtable3 from './component/Dbtable3';
 
 function App() {
   return (
@@ -26,12 +29,9 @@ function App() {
         <Route path="form" element={<FormComponent/>}/>
         <Route path="service" element={<DepartmentForm/>}/>
         <Route path="departmentlist" element={<DepartmentList/>}/>
-        <Route path="invoice" element={<InvoiceForm/>}/>
-        <Route path="invoicelist" element={<InvoiceList/>}/>
-        <Route path="invoiceelement" element={<InvoiceElement/>}/>
-        <Route path="/bill" element={<BillGenerate/>}/>
-      
-        <Route path="/newinvoice" element={<InvoiceApp/>}/>
+        <Route path="/calender" element={<Calender/>}/>
+        <Route path="/dbtable" element={<Dbtable3/>}/>
+        <Route path="/modal" element={<ModalShow/>}/>
         <Route path="*" element={<Home />}  />
       </Routes>
       

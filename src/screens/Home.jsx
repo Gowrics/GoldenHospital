@@ -2,8 +2,8 @@ import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import DeptBox from "../component/DeptBox";
 import ArrayData from "../ArrayData"; // Ensure this import is correct
-import InvoiceElement from "../component/InvoiceElement";
-import SimpleForm from "../component/bootform";
+import ImageUploadForm from "./Imagepreview";
+import Calender from "../component/Calender";
 
 const Home = () => {
   return (
@@ -30,11 +30,12 @@ const Home = () => {
               </div>
             </div>
           </center>
+          <Calender />
           <Outlet /> {/* Render nested routes here */}
         </div>
       </div>
-
-      <InvoiceElement />
+      <ImageUploadForm />
+      {/* <InvoiceElement /> */}
     </div>
   );
 };
