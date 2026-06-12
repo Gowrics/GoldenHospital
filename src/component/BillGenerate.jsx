@@ -54,23 +54,28 @@ const BillGenerate = () => {
         .catch((err) => console.error("error deleting error", err));
     }
   };
+// Initializing sequence number for this month
+let currentSequenceNumber = 100;
 
-  // Form fetch details
-  const [form, setForm] = useState({
-    // invoiceDate: "",
-    // itemDescription: "",
-    // itemRate: "",
-    // itemQuantity: "",
-    // itemDiscount: "",
-    // itemNetAmount: "",
-    cashAmount: "",
-    cardamount: "",
-    creditamount: "",
-    totalCashAmount: 0,
-    totalCardAmount: 0,
-    totalCredid: 0,
-  });
+const generateInvoiceNo = () => {
+  const date = new Date();
+  const yearMonth = `${date.getFullYear()}${String(date.getMonth() + 1).padStart(2, '0')}`; // Format as YYYYMM
+  const sequenceNumber = currentSequenceNumber++; // Increment the sequence number
+  
+  // Return formatted invoice number
+  return `${yearMonth}-${sequenceNumber}`;
+};
 
+const [form, setForm] = useState({
+  invoiceNo: generateInvoiceNo(),
+  invoiceDate: new Date().toLocaleDateString(),
+  cashAmount: "",
+  cardamount: "",
+  creditamount: "",
+  totalCashAmount: 0,
+  totalCardAmount: 0,
+  totalCredid: 0,
+});
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -79,6 +84,8 @@ const BillGenerate = () => {
     setForm(newForm);
   };
 
+
+  
   const handleSubmitpay = (e) => {
     e.preventDefault();
 
@@ -162,11 +169,11 @@ const BillGenerate = () => {
   };
   const fetchPayment = () => {
     axios
-      .get("http://localhost:8003/Payment")
+      .get("http://localhost:8003/paymentDetails")
       .then((res) => {
         setPayment(res.data);
       })
-      .catch((err) => console.log("err"));
+      .catch((err) => console.log("err........."));
   };
 
   return (
@@ -187,7 +194,7 @@ const BillGenerate = () => {
             }}
           >
             <h4>
-              Invoice No: {invoice.reduce((acc, inv) => parseFloat(inv.id), 0)}
+              Invoice No: {payment.reduce((acc, inv) => parseInt(inv.id), 0)}
             </h4>
             <h4>Date: {formatDate(new Date())}</h4>
           </div>

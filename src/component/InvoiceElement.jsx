@@ -48,19 +48,19 @@ function InvoiceElement() {
 
   // Form fetch details
   const [form, setForm] = useState({
-    invoiceId: "1e33",
-    invoiceDate: formatDate(new Date()),
+    // invoiceId: "1e33",
+    // invoiceDate: formatDate(new Date()),
     itemDescription: "",
     itemRate: "",
     itemQuantity: "",
     itemDiscount: "",
     itemNetAmount: "",
-    cashAmount: "",
-    cardamount: "0",
-    creditamount: "0",
-    totalCashAmount: "5400.00",
-    totalCardAmount: "0.00",
-    totalCredid: "0.00",
+    // cashAmount: "",
+    // cardamount: "0",
+    // creditamount: "0",
+    // totalCashAmount: "5400.00",
+    // totalCardAmount: "0.00",
+    // totalCredid: "0.00",
     totalAmount: 0,
     totalDiscount: 0,
     totalNetAmount: 0,
@@ -138,9 +138,9 @@ function InvoiceElement() {
           totalAmount: newTotalAmount.toFixed(2),
           totalDiscount: newDisAmount.toFixed(2),
           totalNetAmount: newNetAmount.toFixed(2),
-          totalCashAmount: newCashAmount.toFixed(2),
-          totalCardAmount: newCardAmount.toFixed(2),
-          totalCredid: newCreditAmount.toFixed(2),
+          // totalCashAmount: newCashAmount.toFixed(2),
+          // totalCardAmount: newCardAmount.toFixed(2),
+          // totalCredid: newCreditAmount.toFixed(2),
         };
 
         console.log("New Total Amount:", newTotalAmount);
@@ -324,7 +324,7 @@ function InvoiceElement() {
             </div> */}
 
             <div className=" modal-footer">
-              <button type="submit" className="btn m-1 btn-primary">
+              <button type="button"   className="btn m-1 btn-primary">
                 Add Item
               </button>
               <Link className="btn btn-primary" to="/bill">

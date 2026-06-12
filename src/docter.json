@@ -125,37 +125,34 @@
   ],
   "Invoice": [
     {
-      "id": "a44c",
+      "id": "30fe",
       "invoiceId": "1e33",
-      "invoiceDate": "14/12/2024",
-      "itemDescription": "Moniter",
-      "itemRate": "1000",
-      "itemQuantity": "3",
-      "itemDiscount": "300.00",
-      "itemNetAmount": "2700.00",
+      "invoiceDate": "15/12/2024",
+      "itemDescription": "desktop",
+      "itemRate": "2",
+      "itemQuantity": "2",
+      "itemDiscount": "0.40",
+      "itemNetAmount": "3.60",
       "cashAmount": "",
       "cardamount": "0",
       "creditamount": "0",
-      "totalCashAmount": "NaN",
+      "totalCashAmount": "5400.00",
       "totalCardAmount": "0.00",
       "totalCredid": "0.00",
-      "totalAmount": "2700.00",
-      "totalDiscount": "300.00",
-      "totalNetAmount": "2700.00"
+      "totalAmount": "3.60",
+      "totalDiscount": "0.40",
+      "totalNetAmount": "3.60"
     },
     {
-      "id": "3633",
-      "itemDescription": "Mouse",
-      "itemRate": "500",
-      "itemQuantity": "4",
-      "itemDiscount": "200.00",
-      "itemNetAmount": "1800.00",
-      "totalAmount": "4500.00",
-      "totalDiscount": "500.00",
-      "totalNetAmount": "4500.00",
-      "totalCashAmount": "NaN",
-      "totalCardAmount": "NaN",
-      "totalCredid": "NaN"
+      "id": "3647",
+      "itemDescription": "ds",
+      "itemRate": "20",
+      "itemQuantity": "2",
+      "itemDiscount": "4.00",
+      "itemNetAmount": "36.00",
+      "totalAmount": "39.60",
+      "totalDiscount": "4.40",
+      "totalNetAmount": "39.60"
     }
   ],
   "paymentDetails": [
@@ -174,6 +171,75 @@
       "cardamount": "0",
       "creditamount": "0",
       "totalCashAmount": "9000.00",
+      "totalCardAmount": "0.00",
+      "totalCredid": "0.00"
+    },
+    {
+      "id": "8fdf",
+      "cashAmount": "8681",
+      "cardamount": "0",
+      "creditamount": "0",
+      "totalCashAmount": "17681.00",
+      "totalCardAmount": "0.00",
+      "totalCredid": "0.00"
+    },
+    {
+      "id": "2e26",
+      "cashAmount": "90",
+      "cardamount": "0",
+      "creditamount": "0",
+      "totalCashAmount": "17771.00",
+      "totalCardAmount": "0.00",
+      "totalCredid": "0.00"
+    },
+    {
+      "id": "46c9",
+      "cashAmount": "90",
+      "cardamount": "0",
+      "creditamount": "0",
+      "totalCashAmount": "17861.00",
+      "totalCardAmount": "0.00",
+      "totalCredid": "0.00"
+    },
+    {
+      "id": "5219",
+      "cashAmount": "90",
+      "cardamount": "0",
+      "creditamount": "0",
+      "totalCashAmount": "17951.00",
+      "totalCardAmount": "0.00",
+      "totalCredid": "0.00"
+    },
+    {
+      "id": "9a55",
+      "invoiceNo": "20241215173534",
+      "invoiceDate": "12/15/2024",
+      "cashAmount": "27",
+      "cardamount": "00",
+      "creditamount": "0",
+      "totalCashAmount": "17978.00",
+      "totalCardAmount": "0.00",
+      "totalCredid": "0.00"
+    },
+    {
+      "id": "b889",
+      "invoiceNo": "202412-100",
+      "invoiceDate": "12/15/2024",
+      "cashAmount": "9",
+      "cardamount": "0",
+      "creditamount": "0",
+      "totalCashAmount": "17987.00",
+      "totalCardAmount": "0.00",
+      "totalCredid": "0.00"
+    },
+    {
+      "id": "3a4b",
+      "invoiceNo": "202412-100",
+      "invoiceDate": "12/15/2024",
+      "cashAmount": "39.60",
+      "cardamount": "0",
+      "creditamount": "0",
+      "totalCashAmount": "18026.60",
       "totalCardAmount": "0.00",
       "totalCredid": "0.00"
     }

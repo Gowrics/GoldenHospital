@@ -7,6 +7,8 @@ import SimpleForm from "../component/bootform";
 
 const Home = () => {
   return (
+
+
     <div className="container-fluid">
       <div className="container-fluid">
         <div className="container-fluid profile">

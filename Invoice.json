@@ -1,0 +1,30 @@
+{
+  "invoiceData":[{
+    "id": "1",
+    "invoice_no": "233",
+    "company": "zdsdf",
+    "email": "",
+    "phone": "",
+    "items": [
+      {
+     "itemDescription": "",
+      "itemRate": "0",
+      "itemQuantity": "0",
+      "itemDiscount": "0.00",
+      "itemNetAmount": "0.00",
+      "totalAmount": "0.00",
+      "totalDiscount": "0.00",
+      "totalNetAmount": "0.00"
+      
+    }
+    ],
+    "cashAmount": "",
+    "cardamount": "0",
+    "creditamount": "0",
+    "totalCashAmount": "0.00",
+    "totalCardAmount": "0.00",
+    "totalCredid": "0.00"
+  }
+  ]
+  }
+  
