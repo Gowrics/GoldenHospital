@@ -1,90 +1,44 @@
 {
   "Docters": [
     {
-      "id": "688b",
-      "docterName": "gowri",
-      "docterId": "4343",
-      "departmentType": "Dermotology",
-      "licenseNum": "4434",
-      "profileImage": {},
-      "signImage": {}
+      "id": "249f",
+      "doctorName": "Ram Kumar",
+      "deptCode": "233",
+      "deptType": "Dental",
+      "licenseNo": "23",
+      "imagePath": "blob:http://localhost:3001/bfad5e70-aeed-4300-b0ed-d88d1d9b6109",
+      "signPath": "blob:http://localhost:3001/753b27f7-7b03-4acd-8d50-3e2df354283f"
     },
     {
-      "id": "a6a5",
-      "docterName": "gowri",
-      "docterId": "4545",
-      "departmentType": "Dental",
-      "licenseNum": "5545",
-      "profileImg": null,
-      "signImage": {},
-      "profileImage": {}
+      "id": "25tf",
+      "doctorName": "Ram Kumar",
+      "deptCode": "233",
+      "deptType": "Dental",
+      "licenseNo": "23",
+      "imagePath": "blob:http://localhost:3001/bfad5e70-aeed-4300-b0ed-d88d1d9b6109",
+      "signPath": "blob:http://localhost:3001/753b27f7-7b03-4acd-8d50-3e2df354283f"
     },
     {
-      "id": "7570",
-      "docterName": "gowri",
-      "docterId": "34434",
-      "departmentType": "Dental",
-      "licenseNum": "4344",
-      "profileImg": {},
-      "signImg": {}
-    },
-    {
-      "id": "0025",
-      "docterName": "Taj",
-      "docterId": "123",
-      "departmentType": "Dental",
-      "licenseNum": "4554",
-      "profileImg": {},
-      "signImg": {}
-    },
-    {
-      "id": "b6b5",
-      "docterName": "Ram Kumar",
-      "docterId": "2323",
-      "departmentType": "Orthopedics",
-      "licenseNum": "3233",
-      "profileImg": {},
-      "signImg": {}
-    },
-    {
-      "id": "4424",
-      "docterName": "ravi",
-      "docterId": "2344",
-      "departmentType": "Orthopedics",
-      "licenseNum": "3434",
-      "profileImg": {},
-      "signImg": {}
-    },
-    {
-      "id": "1641",
-      "docterName": "Ram Kumar",
-      "docterId": "3422",
-      "departmentType": "Anesthesiology",
-      "licenseNum": "231",
-      "profileImg": {},
-      "signImg": {}
-    },
-    {
-      "id": "3e18",
-      "docterName": "Faran",
-      "docterId": "223",
-      "departmentType": "Dermotology",
-      "licenseNum": "233",
-      "profileImg": {},
-      "signImg": {}
-    },
-    {
-      "id": "03bd",
-      "invoiceDate": "2024-12-11",
-      "itemDescription": "dfds",
-      "itemRate": "120000",
-      "itemQuantity": "5",
-      "itemDiscount": "35454",
-      "ItemNetAmount": "34343",
-      "cardamount": "4545",
-      "creditamount": "4543"
+      "id": "295f",
+      "doctorName": "Ram Kumar",
+      "deptCode": "233",
+      "deptType": "Dental",
+      "licenseNo": "23",
+      "imagePath": "blob:http://localhost:3001/bfad5e70-aeed-4300-b0ed-d88d1d9b6109",
+      "signPath": "blob:http://localhost:3001/753b27f7-7b03-4acd-8d50-3e2df354283f"
     }
+  ,
+  {
+    "id": "245j",
+    "doctorName": "Ram Kumar",
+    "deptCode": "233",
+    "deptType": "Dental",
+    "licenseNo": "23",
+    "imagePath": "blob:http://localhost:3001/bfad5e70-aeed-4300-b0ed-d88d1d9b6109",
+    "signPath": "blob:http://localhost:3001/753b27f7-7b03-4acd-8d50-3e2df354283f"
+  }
   ],
+<<<<<<< HEAD
   "Departments": [
     {
       "id": "1",
@@ -244,4 +198,7 @@
       "totalCredid": "0.00"
     }
   ]
+=======
+  "Departments": []
+>>>>>>> c42ef1a944fceb2e67c8afacbd0058c4f2320d44
 }
