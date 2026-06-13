@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 // Color map representing pain scale levels 0 to 10
 const getPainColor = (level) => {
@@ -23,14 +23,26 @@ export default function AdvancedPainTracker() {
   const bodyPartsList = [
     'head-front', 'neck-front', 'chest-front', 'abdomen-front', 'leftArm-front', 'rightArm-front', 'pelvis-front', 'leftLeg-front', 'rightLeg-front',
     'head-back', 'neck-back', 'chest-back', 'abdomen-back', 'leftArm-back', 'rightArm-back', 'pelvis-back', 'leftLeg-back', 'rightLeg-back'
-  ];
+    ];const defaultBodyData = bodyPartsList.reduce((acc, part) => {
+  acc[part] = {
+    pain: 0,
+    treatment: "None"
+  };
+  return acc;
+}, {});
 
-  const [bodyData, setBodyData] = useState(
-    bodyPartsList.reduce((acc, part) => {
-      acc[part] = { pain: 0, treatment: 'None' };
-      return acc;
-    }, {})
-  );
+const [bodyData, setBodyData] = useState(() => {
+  const savedData = localStorage.getItem("physioBodyData");
+
+  if (savedData) {
+    return {
+      ...defaultBodyData,
+      ...JSON.parse(savedData)
+    };
+  }
+
+  return defaultBodyData;
+});
 
   const [selectedPart, setSelectedPart] = useState('head-front');
   const [tooltip, setTooltip] = useState({ visible: false, x: 0, y: 0, partName: '' });
@@ -77,6 +89,26 @@ export default function AdvancedPainTracker() {
     style: { cursor: 'pointer', transition: 'fill 0.15s ease' }
   });
 
+useEffect(() => {
+  if (Object.keys(bodyData).length > 0) {
+    localStorage.setItem(
+      "physioBodyData",
+      JSON.stringify(bodyData)
+    );
+  }
+}, [bodyData]);
+const clearAssessment = () => {
+  const resetData = bodyPartsList.reduce((acc, part) => {
+    acc[part] = {
+      pain: 0,
+      treatment: "None"
+    };
+    return acc;
+  }, {});
+
+  setBodyData(resetData);
+  localStorage.removeItem("physioBodyData");
+};
   return (
     <div style={{ display: 'flex', gap: '30px', fontFamily: 'system-ui, sans-serif', padding: '20px', position: 'relative' }}>
       
@@ -169,6 +201,19 @@ export default function AdvancedPainTracker() {
             ))}
           </ul>
         </div>
+        <button
+  onClick={clearAssessment}
+  style={{
+    padding: "10px",
+    background: "#f44336",
+    color: "#fff",
+    border: "none",
+    borderRadius: "4px",
+    cursor: "pointer"
+  }}
+>
+  Clear Assessment
+</button>
       </div>
 
     </div>
